@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        sc.nextLine();
+        String[] arr = sc.nextLine().split(" ");
+        int intCount = 0;
+        int strCount = 0;
+        for (String s : arr) {
+            if (s.matches("\\d+")) {
+                intCount++;
+            } else {
+                strCount++;
+            }
+        }
+        System.out.println(intCount);
+        System.out.println(strCount);
+    }
+}

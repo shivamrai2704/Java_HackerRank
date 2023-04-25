@@ -1,0 +1,43 @@
+import java.util.Scanner;
+
+public class Outer_Calculator {
+    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int num1 = scanner.nextInt();
+        int num2 = scanner.nextInt();
+        String operator = scanner.next();
+        scanner.close();
+        
+        Inner_Calculator calculator = new Inner_Calculator();
+        double result = calculator.calculate(num1, num2, operator);
+        
+        if (Double.isNaN(result)) {
+            System.out.println("Invalid input or operator!");
+        } else {
+            int value=(int) result;
+            System.out.println(value);
+        }
+    }
+    
+    static class Inner_Calculator {
+        public double calculate(int num1, int num2, String operator) {
+            double result = Double.NaN;
+            if (operator.equals("+")) {
+                result = num1 + num2;
+            } else if (operator.equals("-")) {
+                result = num1 - num2;
+            } else if (operator.equals("*")) {
+                result = num1 * num2;
+            } else if (operator.equals("/")) {
+                if (num2 == 0) {
+                    result = Double.NaN;
+                } else {
+                    result = (double) num1 / num2;
+                }
+            }
+            return result;
+        }
+    }
+    
+}

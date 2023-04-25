@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+interface Validator {
+    boolean valid(String str, int n);
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        int n = sc.nextInt();
+
+        Validator validator = (s, num) -> s.length() > num;
+
+        if (n < 1) {
+            System.out.println("Invalid input");
+        } else if (validator.valid(str, n)) {
+            System.out.println("Valid string");
+        } else {
+            System.out.println("Invalid string");
+        }
+    }
+}
